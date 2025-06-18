@@ -59,7 +59,7 @@ SELECT
  ,product_type
  ,product_name
 FROM `L1.L1_product_purchase` 
-WHERE product_category = 'rent'
+WHERE product_category IN ('rent','product')
   AND product_status_name IS NOT NULL
   AND product_status_name NOT LIKE 'canceled%'
   AND product_status_name NOT LIKE 'disconnected%'
