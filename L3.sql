@@ -32,8 +32,7 @@ SELECT
    WHEN DATE_DIFF(contract_valid_to, contract_valid_from, DAY) <= 183 THEN 'less then half a year'
    WHEN DATE_DIFF(contract_valid_to, contract_valid_from, DAY) <= 365 THEN 'one year'
    WHEN DATE_DIFF(contract_valid_to, contract_valid_from, DAY) <= 548 THEN 'less than a year and half'
-   WHEN DATE_DIFF(contract_valid_to, contract_valid_from, DAY) <= 730 THEN 'two years and more'
-   ELSE 'more than 2'
+   WHEN DATE_DIFF(contract_valid_to, contract_valid_from, DAY) > 548 THEN 'two years and more'
  END AS contract_duration --(in yrs)
  ,EXTRACT(YEAR FROM registered_date) AS contract_start_year
  ,registration_end_reason
